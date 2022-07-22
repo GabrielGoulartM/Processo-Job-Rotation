@@ -19,7 +19,12 @@ print("O maior preço do mes foi: " + str(maxPricedItem))    #printa maior valor
 #calculo da media
 media = sum([item['valor']for item in data])/len(res)
 
-#adpta o valor da media para 2 casas decimais
+
+#cria uma nova lista com os valores maiores que a media
+maiorQueMedia = [i for i in data if not (i['valor'] <= media)]
+
+#adpta a media para duas casas decimais
 format_float = "{:.2f}".format(media)
 
-print("Media com todos os valores sem zero: " + str(format_float))
+print("Media de faturamento(excluindo fim de semanas e feriados): " + str(format_float))
+print("Estes foram os dias em que o faturamento ultrapassou a media --> "+ str(maiorQueMedia))
